@@ -5,18 +5,14 @@ from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
 
 
-
-def list_group(request):
-    groups = models.Category.objects.all()
-
-    return render(request, 'blog/list_group.html', context={'groups': groups})
-
 def detail_article(request, id):   
     article = models.Post.objects.get(id=id)
     articles = models.Post.objects.all()
+    groups = models.Category.objects.all()
     context = {
         'article': article,
-        'articles': articles
+        'articles': articles,
+        'groups': groups
     }
     return render(request, 'blog/detail_article.html', context)
 

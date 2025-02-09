@@ -3,67 +3,86 @@
 
 <html lang="fr">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>{% block title %}fotoblog {% endblock %}</title>
-    <!-- Font Awesome -->
-     <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      rel="stylesheet"
-      />
-<!-- Google Fonts -->
-      <link
-      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-      rel="stylesheet"
-      />
-      <!-- MDB -->
-      <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/8.0.0/mdb.min.css"
-      rel="stylesheet"
-      />
-  </head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Sana-blog</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="../../../static/style.css">
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/14273d579a.js" crossorigin="anonymous"></script>
+</head>
   <body> 
     <div class="container-fluid">
-      <header class="py-4 ">
-        <nav class="navbar navbar-expand-md fixed-top navbar-light">
-          
-          <div class="container">
-            <a class="text-primary navbar-brand text-uppercase fw-bold" href="#">
-              <span class="bg-warning bg-gradient p-1 rounded-3 text-primary">kanka</span> kodji
-            </a>
-            <button class="navbar-toggler bg-primary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-              <ul class="navbar-nav">
-                <li class="nav-item ">
-                  <a class="nav-link text-primary fw-bold" href="https://portfolio-kodji.vercel.app">Qui suis-je ?</a>
-                </li>
+      
+    </div>
+      {% block content %} {% endblock %}
 
-                  <li class="nav-item">
-                   <a class="nav-link text-primary fw-bold" href="{% url 'login' %}">Se connecter</a>
-                  </li>
-                  {% if user.is_authenticated %}
-                  <li class="nav-item">
-                    <a class="nav-link text-primary fw-bold" href="{% url 'logout' %}">Se déconnecter</a>
-                  </li>
-                  {% endif %}
+
+      <footer id="footer" class="border-top">
+        <div class="container py-5">
+          <div class="row gy-4 align-items-center">
+            <div class="col-12 col-md-9 col-sm-6">
+              <a class="navbar-brand text-light text-uppercase fw-bold" href="#">
+                <span class="bg-primary bg-gradient p-1 rounded-3 text-light">Sana</span> - Blog
+              </a>
+            </div>
+            
+            <div class="col-12 col-md-3 col-sm-6 text-md-end">
+              <ul class="list-inline mb-0">
+                <li class="list-inline-item">
+                  <a href="https://discord.gg/36EdmPEmjy" class="text-decoration-none text-light" data-bs-toggle="tooltip" title="Discord">
+                    <i class="fab fa-discord fa-2x"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="https://linkedin.com/in/kkpdjaba" class="text-decoration-none text-light" data-bs-toggle="tooltip" title="LinkedIn">
+                    <i class="fab fa-linkedin fa-2x"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="https://t.me/Kkanka_sana" class="text-decoration-none text-light" data-bs-toggle="tooltip" title="Telegram">
+                    <i class="fab fa-telegram fa-2x"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="https://github.com/KODJIKanka/" class="text-decoration-none text-light" data-bs-toggle="tooltip" title="Github">
+                    <i class="fab fa-github fa-2x"></i>
+                  </a>
                 </li>
               </ul>
             </div>
           </div>
-        </nav>
-      </header>
-    </div>
-      {% block content %} {% endblock %}
+        </div>
+        
+      </footer>
    
     <!-- MDB -->
+   
     
-    <script
-  type="text/javascript"
-  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/8.0.0/mdb.umd.min.js"
-></script>
+     <!-- jQuery CDN - Slim version (=without AJAX) -->
+     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+     <!-- Popper.JS -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+     <!-- Bootstrap JS -->
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+     <script>
+       $(document).ready(function () {
+
+$('#sidebarCollapse').on('click', function () {
+    $('#sidebar').toggleClass('active');
+});
+
+});
+     </script>
+
+  
   </body>
 </html>
