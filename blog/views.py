@@ -21,5 +21,20 @@ def kofi(request):
     return render(request, 'blog/kofi.html')
 
 
+# @login_required
+# def home(request, id):
+#     article = models.Post.objects.get(id=id)
+#     context = {
+#         'article': article
+#     }
+#     return render(request, 'blog/home.html', context)
 
 
+
+@login_required
+def home(request):
+    article = models.Post.objects.first()  # ou toute autre logique pour choisir l'article
+    context = {
+        'article': article
+    }
+    return render(request, 'blog/home.html', context)

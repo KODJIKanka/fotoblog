@@ -15,13 +15,10 @@ def connexion(request):
             user = authenticate(username = form.cleaned_data['username'], password = form.cleaned_data['password'])
             if user is not None:
                 login(request, user)
+                #default_article_id = 1
                 return redirect('home')
         message = 'Identifiants invalides'
     return render(request, 'authentication/login.html', context={'form': form, 'message': message})
-
-@login_required
-def home(request):
-    return render(request, 'blog/home.html')
 
 def signout(request):
     logout(request)

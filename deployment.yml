@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mon-application
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mon-application
+  template:
+    metadata:
+      labels:
+        app: mon-application
+    spec:
+      containers:
+      - name: mon-application
+        image: kkanka/blogdocker
+        ports:
+        - containerPort: 5000

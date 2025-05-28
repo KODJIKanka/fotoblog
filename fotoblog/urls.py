@@ -24,7 +24,7 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', authentication.views.connexion, name='login'),
-    path('home/', authentication.views.home, name='home'),
+    path('home/', blog.views.home, name='home'),
     path('logout/', authentication.views.signout, name='logout'),
     #path('groups/', blog.views.list_group, name='list-group' ),
    # path('articles/', blog.views.list_article, name='list-article' ),
