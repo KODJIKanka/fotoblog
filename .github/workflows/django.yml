@@ -53,7 +53,9 @@ jobs:
           key: ${{ secrets.LOCAL_VM_SSH_KEY }}
           port: 22
           script: |
-            cd ~/home/sanablog
+            cd ~/home/
+            mkdir sanablog/
+            cd sanablog/
             source venv/bin/activate 
             python manage.py migrate 
             python manage.py collectstatic --noinput 
