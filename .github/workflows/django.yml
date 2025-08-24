@@ -38,9 +38,9 @@ jobs:
       - name: Copy files to server
         uses: appleboy/scp-action@master
         with:
-          host: ${{ secrets.AWS_HOST }}  
-          username: ${{ secrets.AWS_USER }}  
-          key: ${{ secrets.AWS_SSH_KEY }}  
+          host: ${{ secrets.LOCAL_VM_HOST }}  # Remplacez par l'IP ou le nom d'hôte de votre VM
+          username: ${{ secrets.LOCAL_VM_USER }}  # Nom d'utilisateur sur la VM
+          key: ${{ secrets.LOCAL_VM_SSH_KEY }}  # Clé SSH pour l'authentification
           port: 22  # Port SSH
           source: "."
           target: "~/home/sanablog"  
@@ -48,9 +48,9 @@ jobs:
       - name: Run deployment script
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.AWS_HOST }}
-          username: ${{ secrets.AWS_USER }}
-          key: ${{ secrets.AWS_SSH_KEY }}
+          host: ${{ secrets.LOCAL_VM_HOST }}
+          username: ${{ secrets.LOCAL_VM_USER }}
+          key: ${{ secrets.LOCAL_VM_SSH_KEY }}
           port: 22
           script: |
             cd ~/home/sanablog
